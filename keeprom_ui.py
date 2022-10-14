@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'ui/keeprom.ui'
@@ -82,6 +83,12 @@ class Ui_MainWindow(object):
         self.menuHelp_2.addAction(self.actionAcerca_de_Eeprom)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuHelp_2.menuAction())
+        
+        self.trans = QtCore.QTranslator()
+        
+        self.trans.load("es-eng")
+        QtCore.QCoreApplication.instance().installTranslator(self.trans)
+        
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -103,3 +110,11 @@ class Ui_MainWindow(object):
         self.actionSave.setText(_translate("MainWindow", "Guardar"))
         self.actionAcerca_de_Eeprom.setText(_translate("MainWindow", "Acerca de Eeprom"))
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

@@ -109,6 +109,11 @@ class Ui_MainWindow(object):
         self.menuHelp_2.addAction(self.actionAcerca_de_Eeprom)
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuHelp_2.menuAction())
+        
+        self.trans = QtCore.QTranslator()
+        
+        self.trans.load("es-eng")
+        QtCore.QCoreApplication.instance().installTranslator(self.trans)
 
         #MainWindow.setWindowIcon(QtGui.QIcon.fromTheme('cpu'))
         MainWindow.setWindowIcon(QtGui.QIcon('sop8.svg'))
